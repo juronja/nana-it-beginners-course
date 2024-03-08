@@ -17,14 +17,15 @@ let post3 = {
 };
 
 
-let facebooUserOne = {
-    userName: "Nana",
+let facebookUserOne = {
+    userName: "Nana here, Nana there, Nana everywhere",
     password: "newpwd",
     email: "nn@exsample.com",
     profileImage: "reference-image",
     friends: ["Mike", "Anna", "Jenny"],
-    posts: [post1, post2] 
-};
+    posts: [post1, post2],
+    birthDate: "1996/08/18"
+}
 
 let facebookUserTwo = {
     userName: "Mike",
@@ -32,45 +33,75 @@ let facebookUserTwo = {
     email: "mike@exsample.com",
     profileImage: "mike-reference-image",
     friends: ["Steve", "Nana", "Julia"],
-    posts: [post3] 
+    posts: [post3],
+    birthDate: "2003/03/21"
 }
 
-//for (index in facebooUserOne.posts) {
-//    console.log(posts[index])
-
-// this loop copies likes to reactions and deletes likes after
-//for (post of facebooUserOne.posts) { // for..of = better choice for working with arrays
-//    console.log(post.likes) // with .likes you only print out the likes property.
-//    post.reactions = post.likes
-//    delete post.likes
-//};
-
-//console.log("Just posts: ");
-//console.log(facebooUserOne.posts);
-
-// example with multiple users
-var users = [facebooUserOne, facebookUserTwo];
-
-for (user of users) {
-    user.interests = []
-};
-
-console.log("Just users: ");
-console.log(users);
-
-// example with both above - nested loop
-for (user of users) {
-    user.interests = []
+// Function block
+function replaceLikesWithReactions(user) {
     for (post of user.posts) {
-        post.reactionsboth = post.likes
+        post.reactions = post.likes
         delete post.likes
     }
-};
 
-console.log("Both together: ");
+    console.log(user);
+}
+
+replaceLikesWithReactions(facebookUserOne);
+replaceLikesWithReactions(facebookUserTwo);
+
+// Built-in functions by data type
+
+// Arrays
+facebookUserOne.friends.pop() // Removes the last element of array.
+facebookUserOne.friends.push("Jure") // Adds an element to an array.
+
+// Strings
+facebookUserOne.userName.replace("Nana", "Maria") // Replace the string
+facebookUserOne.userName.replace(/Nana/g, "Maria") // Regex
+facebookUserOne.userName.replaceAll("Nana", "Maria") // Replace all
+facebookUserOne.userName.split(" ") // Split strings into array. In this case delimiter is space.
+
+// Exercise Names
+// Split these names and make a first name last name object for all
+let fullNames = ["Anna Smith", "Steve Black", "Kate Baker"];
+
+// define the final object array
+let firstAndLastNames = []
+
+
+for (name of fullNames) {
+    let splitName = name.split(" "); // Splits names
+    let firstAndLastName = { // Defines new object with properties
+        firstName: splitName[0], // takes strings form indexes
+        lastName: splitName[1]
+    }
+    firstAndLastNames.push(firstAndLastName); // Pushes all to the final object array
+}
+
+//console.log(fullNames);
+console.log(firstAndLastNames);
+
+
+// Exercise Age
+
+function getAge(birthInput) {
+    let today = new Date();
+    let birthDate = new Date(birthInput);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    if (today.getMonth() < birthDate.getMonth() || (today.getMonth() === birthDate.getMonth() && (today.getDate() < birthDate.getDate()))) {
+        age-- // -- => age = age - 1
+    }
+    return age
+} 
+
+let users = [facebookUserOne, facebookUserTwo];
+
+for (user of users) {
+    user.age = getAge(user.birthDate);
+}
+
 console.log(users);
-
-
 
 </script>
 
