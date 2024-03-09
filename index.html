@@ -1,91 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Muci šla v Zermatt</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" contents="muci, zermatt">
-        <meta name="description" content="Muci je šla v Zermatt description.">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamable App</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/app.js" ></script>
+
+    <!-- Validator -->
+    <script src="node_modules/validator/validator.min.js"></script>
+    
+    <!-- Datepicker.js -->
+    <link rel="stylesheet" href="node_modules/Datepicker.js/dist/css/datepicker.material.css">
+    <script src="node_modules/Datepicker.js/dist/datepicker.js"></script>
+
+
+</head>
+<body>
+    <header>
         
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-
-        <!-- more icons here: https://realfavicongenerator.net/ -->
-                
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/app.js"></script>
-
-    </head>
-    <body>
-        <header>
-            <div id="header-content">
-                <div id="logo-search-container">
-                    <img id="logo-img" src="images/cat-logo.png" alt="logo">
-                    <input type="text" placeholder="Search ...">
+    </header>
+    <main>
+        <div id="profile-container">
+            <div id="user-data">
+                <h1>User profile</h1>
+                <img class="profile-img" src="images/prettiest_cat_on_earth.png" alt="prettiest cat on earth">
+                    <div class="data-line">
+                        <span>Name: </span><b id="user-name">Potička Podri</b> <!-- span is a inline element, p and div are block elements -->
+                    </div>
+                <hr> <!-- this is a line element -->
+                    <div class="data-line">
+                        <span>Email: </span><b id="user-email">podri@example.com</b>
+                    </div>
+                <hr>
+                    <div class="data-line">
+                        <span>Interests: </span><b id="user-interests">coding</b>
+                    </div>
+                <hr>  
+                <div class="data-line">
+                    <span>Birth Date: </span><b id="user-birthdate">2022/02/19</b>
                 </div>
-                <button onclick="handleCreatePost()">Create post</button>
+                <hr>  
+
+                
+                <button onclick="handleEditProfile()">
+                    Edit Profile
+                </button>
             </div>
-        </header>
-
-        <div id="post-form-container">
-            <form action="">
-                <label for="Title"><b>Title</b></label>
-                <input type="text" placeholder="Enter title" required>
-                <label for="Description"><b>Description</b></label>
-                <input type="text" placeholder="Enter description">
-                <label for="Post"><b>Post</b></label>
-                <textarea name="Your post" placeholder="Your post" cols="30" rows="10"></textarea>
-                <button onclick="handleHideForm()">Hide form</button>
-                <button>Save form</button>
-            </form>
-
+        
+            <div id="user-data-edit">
+                <h1>Edit profile</h1>
+                <img class="profile-img" src="images/prettiest_cat_on_earth.png" alt="prettiest cat on earth">
+                    <div class="data-line">
+                        <span>Name: </span>
+                        <input type="text" id="input-name">
+                    </div>
+                <hr>
+                    <div class="data-line">
+                        <span>Email: </span>
+                        <input type="email" id="input-email">
+                    </div>
+                <hr>
+                    <div class="data-line">
+                        <span>Interests: </span> 
+                        <input type="text" id="input-interests">
+                    </div>
+                <hr>
+                <div class="data-line">
+                    <span>Birth Date: </span> 
+                    <input type="text" id="input-birthdate">
+                </div>
+                <hr>  
+            
+                <button onclick="handleUpdateProfile()">
+                    Update Profile
+                </button>
+            </div>
         </div>
 
-        <main>
-            <article>
-                <img id="article-cover" src="images/matterhorn.jpg" alt="Matterhorn">
-                <div>
-                    <h1>Muci šla v Zermatt</h1>
-                    <h3>Short information on article</h3>
-                    <p class="article-info"><i>written by: Jure Repina</i></p>
-                    <p class="article-info"><i>date: 2022.12.23</i></p>
-                </div>
-
-                <div>
-                    <p>paragraph 1</p>
-                    <p>paragraph 2</p>
-
-                    <h4>section header</h4>
-                    <p>paragraph 1</p>
-                    <ul>
-                        <li>item 1</li>
-                        <li>item 2</li>
-                        <li>item 3</li>
-                    </ul>
-                </div>
-            </article>
-        
-            <aside>
-                <div>
-                    <h2>Side section</h2>
-                    <h3>Another article title</h3>
-                    <h4>Another article short info</h4>
-                    <a href="https://www.wikipedia.org/">Click here</a>
-                </div>
-
-                <div>
-                    <h2>Also side section</h2>
-                    <h3>Kolektiv 22</h3>
-                    <h4>short description</h4>
-                    <a href="https://www.kolektiv22.com/">Click here</a>
-                </div>
-            </aside>
-        </main>
-
-        <footer>
-            <p>This is the footer</p>
-        </footer>
-
-    </body>
+    </main>
+</body>
 </html>
