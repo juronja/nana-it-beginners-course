@@ -1,0 +1,78 @@
+<script>
+
+let post1 = {
+    content: "This is my super post",
+    likes: 300,
+    shares: 20
+};
+let post2 = {
+    content: "This is my boring post",
+    likes: 10,
+    shares: 0
+};
+let post3 = {
+    content: "This is my boring post",
+    likes: 210,
+    shares: 2
+};
+
+
+let facebooUserOne = {
+    userName: "Nana",
+    password: "newpwd",
+    email: "nn@exsample.com",
+    profileImage: "reference-image",
+    friends: ["Mike", "Anna", "Jenny"],
+    posts: [post1, post2] 
+};
+
+let facebookUserTwo = {
+    userName: "Mike",
+    password: "mikepass",
+    email: "mike@exsample.com",
+    profileImage: "mike-reference-image",
+    friends: ["Steve", "Nana", "Julia"],
+    posts: [post3] 
+}
+
+//for (index in facebooUserOne.posts) {
+//    console.log(posts[index])
+
+// this loop copies likes to reactions and deletes likes after
+//for (post of facebooUserOne.posts) { // for..of = better choice for working with arrays
+//    console.log(post.likes) // with .likes you only print out the likes property.
+//    post.reactions = post.likes
+//    delete post.likes
+//};
+
+//console.log("Just posts: ");
+//console.log(facebooUserOne.posts);
+
+// example with multiple users
+var users = [facebooUserOne, facebookUserTwo];
+
+for (user of users) {
+    user.interests = []
+};
+
+console.log("Just users: ");
+console.log(users);
+
+// example with both above - nested loop
+for (user of users) {
+    user.interests = []
+    for (post of user.posts) {
+        post.reactionsboth = post.likes
+        delete post.likes
+    }
+};
+
+console.log("Both together: ");
+console.log(users);
+
+
+</script>
+
+<body>
+    
+</body>
