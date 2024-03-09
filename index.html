@@ -1,38 +1,91 @@
-<body>
-    <div>
-        <img src="cat-logo.png" alt="logo">
-        <input type="text" placeholder="Search ...">
-        <button>Log in button</button>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Muci šla v Zermatt</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" contents="muci, zermatt">
+        <meta name="description" content="Muci je šla v Zermatt description.">
+        
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
 
-    <div>
-        <div>
-            <h1>Article title</h1>
-            <h3>Short information on article</h3>
-            <p><i>written by: Jure Repina</i></p>
-            <p><i>date: 2022.12.23</i></p>
+        <!-- more icons here: https://realfavicongenerator.net/ -->
+                
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/app.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <div id="header-content">
+                <div id="logo-search-container">
+                    <img id="logo-img" src="images/cat-logo.png" alt="logo">
+                    <input type="text" placeholder="Search ...">
+                </div>
+                <button onclick="handleCreatePost()">Create post</button>
+            </div>
+        </header>
+
+        <div id="post-form-container">
+            <form action="">
+                <label for="Title"><b>Title</b></label>
+                <input type="text" placeholder="Enter title" required>
+                <label for="Description"><b>Description</b></label>
+                <input type="text" placeholder="Enter description">
+                <label for="Post"><b>Post</b></label>
+                <textarea name="Your post" placeholder="Your post" cols="30" rows="10"></textarea>
+                <button onclick="handleHideForm()">Hide form</button>
+                <button>Save form</button>
+            </form>
+
         </div>
 
-        <div>
-            <img src="matterhorn.jpg" alt="Matterhorn">
-            <p>paragraph 1</p>
-            <p>paragraph 2</p>
+        <main>
+            <article>
+                <img id="article-cover" src="images/matterhorn.jpg" alt="Matterhorn">
+                <div>
+                    <h1>Muci šla v Zermatt</h1>
+                    <h3>Short information on article</h3>
+                    <p class="article-info"><i>written by: Jure Repina</i></p>
+                    <p class="article-info"><i>date: 2022.12.23</i></p>
+                </div>
 
-            <h4>section header</h4>
-            <p>paragraph 1</p>
-            <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-            </ul>
-            </div>
-    </div>
+                <div>
+                    <p>paragraph 1</p>
+                    <p>paragraph 2</p>
 
-    <div>
-        <h2>Side section</h2>
-        <h3>Another article title</h3>
-        <h4>Another article short info</h4>
-        <a href="https://www.wikipedia.org/">Click here</a>
-    </div>
+                    <h4>section header</h4>
+                    <p>paragraph 1</p>
+                    <ul>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                    </ul>
+                </div>
+            </article>
+        
+            <aside>
+                <div>
+                    <h2>Side section</h2>
+                    <h3>Another article title</h3>
+                    <h4>Another article short info</h4>
+                    <a href="https://www.wikipedia.org/">Click here</a>
+                </div>
 
-</body>
+                <div>
+                    <h2>Also side section</h2>
+                    <h3>Kolektiv 22</h3>
+                    <h4>short description</h4>
+                    <a href="https://www.kolektiv22.com/">Click here</a>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>This is the footer</p>
+        </footer>
+
+    </body>
+</html>

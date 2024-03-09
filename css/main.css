@@ -1,0 +1,125 @@
+/* global styles */
+
+body {
+    background-color: aliceblue;
+    margin: 0;
+}
+
+a {
+    font-size: 10px;
+}
+
+header {
+    background-color: white;
+    height: 50px;
+}
+
+main {
+    display: flex;
+    width: 80%;
+    margin: 15px auto;
+}
+
+article {
+    background-color: white;
+    width: 70%;
+}
+
+article div {/* nested selector styles */
+    padding: 15px;
+}
+
+aside {
+    width: 30%;
+}
+
+aside div {/* nested selector styles */
+    background-color: white;
+    padding: 5px 15px;
+    margin: 0px 0px 5px 15px;
+}
+
+footer {
+    background-color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*
+div {
+    border: 1px solid black;
+    margin: 5px;
+}
+*/
+
+/* ID styles */
+
+#header-content {
+    height: 50px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-content input {
+    padding: 5px;
+    font-size: 18px;
+    margin: 0px 10px;
+    width: 300px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+#header-content button {
+    padding: 5px 15px;
+    font-size: 18px;
+    margin: 0px 10px;
+    color: blue;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+#header-content button:hover {
+    cursor: pointer;
+    background: black;
+}
+
+
+#logo-img {
+    height: 40px;
+    padding: 5px;
+}
+
+#logo-search-container {
+    display: flex;
+    align-items: center;
+}
+
+#article-cover {
+    width: 100%;
+}
+
+#post-form-container {
+    max-width: 300px;
+    padding: 10px;
+    margin: auto;
+    display: none;
+}
+
+#post-form-container input, textarea {/* comma separated elements */
+    width: 100%;
+    margin: 5px 0px 20px 0px;
+    padding: 10px;
+}
+
+
+
+/* Class styles */
+
+.article-info {
+    color: brown;
+}
