@@ -1,110 +1,38 @@
-<script>
-
-let post1 = {
-    content: "This is my super post",
-    likes: 300,
-    shares: 20
-};
-let post2 = {
-    content: "This is my boring post",
-    likes: 10,
-    shares: 0
-};
-let post3 = {
-    content: "This is my boring post",
-    likes: 210,
-    shares: 2
-};
-
-
-let facebookUserOne = {
-    userName: "Nana here, Nana there, Nana everywhere",
-    password: "newpwd",
-    email: "nn@exsample.com",
-    profileImage: "reference-image",
-    friends: ["Mike", "Anna", "Jenny"],
-    posts: [post1, post2],
-    birthDate: "1996/08/18"
-}
-
-let facebookUserTwo = {
-    userName: "Mike",
-    password: "mikepass",
-    email: "mike@exsample.com",
-    profileImage: "mike-reference-image",
-    friends: ["Steve", "Nana", "Julia"],
-    posts: [post3],
-    birthDate: "2003/03/21"
-}
-
-// Function block
-function replaceLikesWithReactions(user) {
-    for (post of user.posts) {
-        post.reactions = post.likes
-        delete post.likes
-    }
-
-    console.log(user);
-}
-
-replaceLikesWithReactions(facebookUserOne);
-replaceLikesWithReactions(facebookUserTwo);
-
-// Built-in functions by data type
-
-// Arrays
-facebookUserOne.friends.pop() // Removes the last element of array.
-facebookUserOne.friends.push("Jure") // Adds an element to an array.
-
-// Strings
-facebookUserOne.userName.replace("Nana", "Maria") // Replace the string
-facebookUserOne.userName.replace(/Nana/g, "Maria") // Regex
-facebookUserOne.userName.replaceAll("Nana", "Maria") // Replace all
-facebookUserOne.userName.split(" ") // Split strings into array. In this case delimiter is space.
-
-// Exercise Names
-// Split these names and make a first name last name object for all
-let fullNames = ["Anna Smith", "Steve Black", "Kate Baker"];
-
-// define the final object array
-let firstAndLastNames = []
-
-
-for (name of fullNames) {
-    let splitName = name.split(" "); // Splits names
-    let firstAndLastName = { // Defines new object with properties
-        firstName: splitName[0], // takes strings form indexes
-        lastName: splitName[1]
-    }
-    firstAndLastNames.push(firstAndLastName); // Pushes all to the final object array
-}
-
-//console.log(fullNames);
-console.log(firstAndLastNames);
-
-
-// Exercise Age
-
-function getAge(birthInput) {
-    let today = new Date();
-    let birthDate = new Date(birthInput);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    if (today.getMonth() < birthDate.getMonth() || (today.getMonth() === birthDate.getMonth() && (today.getDate() < birthDate.getDate()))) {
-        age-- // -- => age = age - 1
-    }
-    return age
-} 
-
-let users = [facebookUserOne, facebookUserTwo];
-
-for (user of users) {
-    user.age = getAge(user.birthDate);
-}
-
-console.log(users);
-
-</script>
-
 <body>
-    
+    <div>
+        <img src="cat-logo.png" alt="logo">
+        <input type="text" placeholder="Search ...">
+        <button>Log in button</button>
+    </div>
+
+    <div>
+        <div>
+            <h1>Article title</h1>
+            <h3>Short information on article</h3>
+            <p><i>written by: Jure Repina</i></p>
+            <p><i>date: 2022.12.23</i></p>
+        </div>
+
+        <div>
+            <img src="matterhorn.jpg" alt="Matterhorn">
+            <p>paragraph 1</p>
+            <p>paragraph 2</p>
+
+            <h4>section header</h4>
+            <p>paragraph 1</p>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+            </ul>
+            </div>
+    </div>
+
+    <div>
+        <h2>Side section</h2>
+        <h3>Another article title</h3>
+        <h4>Another article short info</h4>
+        <a href="https://www.wikipedia.org/">Click here</a>
+    </div>
+
 </body>
