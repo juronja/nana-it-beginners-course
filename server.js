@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// Destructured import of custom functions
+const { isEmptyObject, isInvalidEmail } = require('./validator') // ./ tells that the validator is in root not in node_modules
+
 // MongoDB
 const { MongoClient } = require('mongodb')
 const url = 'mongodb://localhost:27017'
@@ -10,12 +13,12 @@ const client = new MongoClient(url)
 const dbName = 'company_db'
 
 
-app.listen(port, function () {
+const server = app.listen(port, function () {
     console.log(`Example app listening on port ${port}`)
 }) // define listnening port
 
 app.use(require("body-parser").json()) // needed to parse the JSON to JS first.
-app.use('/', express.static(__dirname + '/dist')); // serves the index.html file on load
+app.use('/', static(__dirname + '/dist')); // serves the index.html file on load
 
 
 // GET method
@@ -43,8 +46,8 @@ app.post('/update-profile-data', async function(req, res) {
     const payload = req.body
     console.log("Saved task: ", payload)
 
-    if (Object.keys(payload).length === 0) {
-        res.status(400).send("Object is empty") // you can send HTTP header status codes back
+    if (isEmptyObject(payload) || isInvalidEmail(payload)) {
+        res.status(400).send("Object is empty or the email is not a valid format.") // you can send HTTP header status codes back
     } else {
         // Connect to db
         await client.connect()
@@ -61,3 +64,8 @@ app.post('/update-profile-data', async function(req, res) {
     }
     
 })
+
+module.export = {
+    app,
+    server
+}
