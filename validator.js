@@ -7,7 +7,7 @@ function isEmptyObject(payload) {
     return Object.keys(payload).length === 0
 }
 
-module.exports = {
+export {
     isInvalidEmail,
     isEmptyObject
 }

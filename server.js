@@ -1,13 +1,13 @@
-const express = require('express')
+import express from "express"
 const app = express()
 const port = 3000
 
 // Destructured import of custom functions
-const { isEmptyObject, isInvalidEmail } = require('./validator') // ./ tells that the validator is in root not in node_modules
+import { isEmptyObject, isInvalidEmail } from './validator.js' // ./ tells that the validator is in root not in node_modules
 
 // MongoDB
-const { MongoClient } = require('mongodb')
-const url = 'mongodb://localhost:27017'
+import { MongoClient } from 'mongodb'
+const url = 'mongodb://juronja:PASSWORD@127.0.0.1:27017?authSource=company_db'
 const client = new MongoClient(url)
 // Database Name
 const dbName = 'company_db'
@@ -17,8 +17,9 @@ const server = app.listen(port, function () {
     console.log(`Example app listening on port ${port}`)
 }) // define listnening port
 
-app.use(require("body-parser").json()) // needed to parse the JSON to JS first.
-app.use('/', static(__dirname + '/dist')); // serves the index.html file on load
+app.use(express.json()) // needed to parse the JSON to JS first.
+app.use(express.static('dist'))
+//app.use('/', express.static(__dirname + '/dist')); // serves the index.html file on load
 
 
 // GET method
@@ -44,16 +45,16 @@ app.get('/get-profile-data', async function(req, res) {
 // POST method endpoint + RequestHandler function to handle requests and responses (req, res).
 app.post('/update-profile-data', async function(req, res) {
     const payload = req.body
-    console.log("Saved task: ", payload)
+    console.log("Saved data: ", payload)
 
     if (isEmptyObject(payload) || isInvalidEmail(payload)) {
         res.status(400).send("Object is empty or the email is not a valid format.") // you can send HTTP header status codes back
     } else {
         // Connect to db
         await client.connect()
-        console.log('Connected successfully to server')
+        console.log("Connected successfully to server")
         const db = client.db(dbName)
-        const collection = db.collection('employees')
+        const collection = db.collection("employees")
         
         // Save payload to db
         payload["id"] = 1
@@ -65,7 +66,7 @@ app.post('/update-profile-data', async function(req, res) {
     
 })
 
-module.export = {
+export {
     app,
     server
 }
