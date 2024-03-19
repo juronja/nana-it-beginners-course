@@ -6,12 +6,16 @@ const port = 3000
 import { isEmptyObject, isInvalidEmail } from './validator.js' // ./ tells that the validator is in root not in node_modules
 
 // MongoDB
-import { MongoClient } from 'mongodb'
-const url = 'mongodb://juronja:PASSWORD@127.0.0.1:27017?authSource=company_db'
-const client = new MongoClient(url)
+import { MongoClient } from "mongodb"
+
+const { DB_USER, DB_PASS } = process.env // Import user and pass from SYSTEM environments
+// add SYSTEM variables with "export DB_USER=username"
+
 // Database Name
 const dbName = 'company_db'
 
+const url = `mongodb://${DB_USER}:${DB_PASS}@127.0.0.1:27017?authSource=company_db`
+const client = new MongoClient(url)
 
 const server = app.listen(port, function () {
     console.log(`Example app listening on port ${port}`)

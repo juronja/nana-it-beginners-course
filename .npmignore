@@ -2,4 +2,5 @@
 src
 tests
 /index.html
-teamable*
+teamable-app*
+.local
